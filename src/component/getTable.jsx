@@ -33,9 +33,10 @@ const TablaUsuarios = () => {
   return (
     <div className="p-6 max-w-7xl mx-auto bg-white rounded-xl shadow-md space-y-4">
         <h1 className="text-2xl font-bold mb-4">Registros de Usuarios</h1>
-        <h2>Proyecto Educativo - Universidad Rural Seccion Nueva Santa Rosa</h2>
+        <h2>Proyecto Educativo - </h2>
         <img 
             src="/regional.png"
+            className="h-16 mb-4"
         />
       <table className="min-w-full border border-gray-300 divide-y divide-gray-200">
         <thead className="bg-gray-100">
