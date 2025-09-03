@@ -35,7 +35,7 @@ const TablaUsuarios = () => {
         <h1 className="text-2xl font-bold mb-4">Registros de Usuarios</h1>
         <h2>Proyecto Educativo - Universidad Rural Seccion Nueva Santa Rosa</h2>
         <img 
-            src="/logoUniversidad.jpeg"
+            src="/regional.png"
         />
       <table className="min-w-full border border-gray-300 divide-y divide-gray-200">
         <thead className="bg-gray-100">
