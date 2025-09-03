@@ -1,43 +1,51 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { useLocation, useNavigate, useParams } from "react-router";
+import { useParams } from "react-router";
 import useDataStore from "../store/useDataStore";
 import { Link } from "react-router";
+
+import L from "leaflet";
+
+// Importar iconos de Leaflet correctamente para Vite
+import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
+import markerIcon from "leaflet/dist/images/marker-icon.png";
+import markerShadow from "leaflet/dist/images/marker-shadow.png";
+import Map from "./Map";
 
 export default function GetById( ) {
    
 const { id } = useParams();
   const { data } = useDataStore();
-  console.log(data);
   //const registro = datos.find(item => item._id === "68b6934f9cc7859ad10b431b");
 const captura = data.find((item) => String(item._id) == id);
-console.log("caputura", captura);
 
   if (!captura) {
     return <p>No se encontró la captura con ID {id}</p>;
   }
 
   return (
-    <div className="p-6 max-w-4xl mx-auto bg-white rounded-xl shadow-md space-y-4">
+    <div className="bg-amber-100 p-8 mx-auto  rounded-xl shadow-md space-y-4">
         <h1 className="text-2xl font-bold mb-4">Detalles de la Captura</h1>
         <h2>Universidad Rural: 4to. Ciclo</h2>
         <h2>Curso: Seguridad Informática</h2>
-        <h2>Estudiante: Manuel Veliz</h2>
-      <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-xl p-6 my-6">
+        <h2>Estudiante: Nombre1 y nombre2</h2>
+      <div className=" mx-auto bg-white shadow-lg rounded-xl p-6 my-6">
   {/* Título */}
   <h2 className="text-2xl font-bold mb-6">
     Datos del usuario con IP: <span className="text-blue-600">{captura.ipPublica}</span>
   </h2>
 
   {/* Contenedor de 2 columnas en desktop */}
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
     {/* Columna 1: Ubicación */}
-    <div>
+    <div className="w-full">
       <h3 className="font-semibold mb-2 text-lg">Ubicación detectada:</h3>
       <p>Latitud: <span className="font-bold">{captura.ubicacion.lat}</span></p>
       <p>Longitud: <span className="font-bold">{captura.ubicacion.lon}</span></p>
       <p>Precisión: <span className="font-bold">{captura.ubicacion.accuracy} metros</span></p>
-      <MapContainer
+      <Map captura={captura.ubicacion} />
+      
+      {/* <MapContainer
         center={[captura.ubicacion.lat, captura.ubicacion.lon]}
         zoom={16}
         style={{ height: "300px", width: "100%", borderRadius: 12 }}
@@ -49,7 +57,7 @@ console.log("caputura", captura);
         <Marker position={[captura.ubicacion.lat, captura.ubicacion.lon]}>
           <Popup>¡Aquí estás!</Popup>
         </Marker>
-      </MapContainer>
+      </MapContainer> */}
     </div>
 
     {/* Columna 2: Datos del sistema */}
