@@ -189,36 +189,7 @@ export const BottonFacebook = () => {
    
       )}
       
-      {data && data.ubicacion && data.ubicacion.lat && data.ubicacion.lon && (
-        <div style={{ marginBottom: "1rem" }}>
-          <div style={{ marginBottom: 8 }}>
-            <strong>Ubicación detectada:</strong><br />
-            Latitud: <b>{data.ubicacion.lat}</b><br />
-            Longitud: <b>{data.ubicacion.lon}</b><br />
-            Precisión: <b>{data.ubicacion.accuracy} metros</b>
-          </div>
-          <MapContainer
-            center={[data.ubicacion.lat, data.ubicacion.lon]}
-            zoom={16}
-            style={{ height: "300px", width: "100%", borderRadius: 12 }}
-          >
-            <TileLayer
-              attribution='&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-            <Marker position={[data.ubicacion.lat, data.ubicacion.lon]}>
-              <Popup>
-                ¡Aquí estás!
-              </Popup>
-            </Marker>
-          </MapContainer>
-        </div>
-      )}
-      {data && (
-        <pre style={{ background: "#f6f6f6", padding: "1rem", borderRadius: 12, overflowX: "auto" }}>
-          {JSON.stringify(data, null, 2)}
-        </pre>
-      )}
+      
     </div> 
   )
 }
