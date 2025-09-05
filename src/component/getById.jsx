@@ -26,10 +26,17 @@ const captura = data.find((item) => String(item._id) == id);
   return (
     <div className="bg-amber-100 p-8 mx-auto  rounded-xl shadow-md space-y-4">
         <h1 className="text-2xl font-bold mb-4">Detalles de la Captura</h1>
-        <h2>Universidad Rural: 4to. Ciclo</h2>
-        <h2>Curso: Seguridad Informática</h2>
-        <h2>Estudiante: Nombre1 y nombre2</h2>
+        <h2> <strong>Universidad Regional: </strong> 9veno. Semestre</h2>
+        <h2 className="text-2xl text-amber-600"> Curso: Criminalista</h2>
+        <h2 className="text-3xl text-blue-600 px-3 py-2 bg-amber-300 border-2">Estudiante: Mavelin Pindea & Yaminet Zepeda</h2>
       <div className=" mx-auto bg-white shadow-lg rounded-xl p-6 my-6">
+         <Link
+                    to={`/escritorio`}
+                    className="p-2 bg-black text-amber-50 "
+                >
+    
+                 Regresar al Escritorio
+                </Link>
   {/* Título */}
   <h2 className="text-2xl font-bold mb-6">
     Datos del usuario con IP: <span className="text-blue-600">{captura.ipPublica}</span>
@@ -45,19 +52,7 @@ const captura = data.find((item) => String(item._id) == id);
       <p>Precisión: <span className="font-bold">{captura.ubicacion.accuracy} metros</span></p>
       <Map captura={captura.ubicacion} />
       
-      {/* <MapContainer
-        center={[captura.ubicacion.lat, captura.ubicacion.lon]}
-        zoom={16}
-        style={{ height: "300px", width: "100%", borderRadius: 12 }}
-      >
-        <TileLayer
-          attribution='&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        <Marker position={[captura.ubicacion.lat, captura.ubicacion.lon]}>
-          <Popup>¡Aquí estás!</Popup>
-        </Marker>
-      </MapContainer> */}
+     
     </div>
 
     {/* Columna 2: Datos del sistema */}
@@ -76,15 +71,11 @@ const captura = data.find((item) => String(item._id) == id);
       <p><strong>Notificaciones:</strong> {captura.permisos?.notifications || "No disponible"}</p>
 
       <p className="mt-3 mb-3"><strong>Fecha de Creación:</strong> {captura.createdAt}</p>
-       <Link
-                    to={`/escritorio`}
-                    className="p-4 bg-black text-amber-50 mt-3"
-                >
-                  
-                 Regresar al Escritorio
-                </Link>
+       
     </div>
+   
   </div>
+
 </div>
       
     </div>
